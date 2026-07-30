@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanderly | Travel Agency</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root{
+    --primary:#1c8cff;
+    --primary-dark:#0d6fd3;
+    --navy:#0d2340;
+    --cyan:#24c7d9;
+    --sand:#f8f5ef;
+    --white:#ffffff;
+    --text:#203044;
+    --muted:#718096;
+    --border:#dfe7ef;
+    --green:#16a085;
+    --orange:#ff8a3d;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#fff;
+    color:var(--text);
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+.container{
+    width:min(1200px,calc(100% - 40px));
+    margin:auto;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    cursor:pointer;
+    padding:14px 24px;
+    border-radius:10px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+.btn-light{
+    background:#fff;
+    color:var(--navy);
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.45);
+    color:#fff;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#081b31;
+    color:#cad6e5;
+    padding:9px 0;
+    font-size:12px;
+}
+
+.topbar-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.topbar strong{
+    color:#fff;
+}
+
+/* HEADER */
+
+header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.navbar{
+    min-height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.logo{
+    font-family:"Manrope",sans-serif;
+    font-size:25px;
+    font-weight:800;
+    color:var(--navy);
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+.menu a{
+    font-size:14px;
+    font-weight:600;
+    color:#546173;
+}
+
+.menu a:hover{
+    color:var(--primary);
+}
+
+.nav-actions{
+    display:flex;
+    gap:10px;
+}
+
+/* HERO */
+
+.hero{
+    background:
+        radial-gradient(circle at 10% 10%,rgba(36,199,217,.18),transparent 28%),
+        linear-gradient(135deg,#0e3158,#144f82);
+    color:#fff;
+    padding:35px 0 80px;
+}
+
+.hero-grid{
+    min-height:650px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:55px;
+}
+
+.hero-content{
+    padding:60px 0 110px;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:30px;
+    padding:9px 14px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+
+.hero-badge span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#68e2ed;
+}
+
+.hero h1{
+    font-family:"Manrope",sans-serif;
+    font-size:66px;
+    line-height:1.05;
+    letter-spacing:-2.5px;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:#7ee7ef;
+}
+
+.hero p{
+    color:#d2dfec;
+    font-size:17px;
+    line-height:1.8;
+    max-width:600px;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.hero-points{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-top:40px;
+    font-size:12px;
+    color:#d7e3ef;
+}
+
+.hero-points span{
+    color:#7ee7ef;
+    margin-right:6px;
+}
+
+.hero-image{
+    position:relative;
+    align-self:end;
+}
+
+.hero-image img{
+    height:560px;
+    object-fit:cover;
+    border-radius:28px 28px 0 0;
+}
+
+.hero-card{
+    position:absolute;
+    bottom:70px;
+    left:-25px;
+    background:#fff;
+    color:var(--navy);
+    border-radius:14px;
+    padding:18px 20px;
+    box-shadow:0 18px 45px rgba(0,0,0,.2);
+}
+
+.hero-card strong{
+    display:block;
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.hero-card span{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* SEARCH BOX */
+
+.search-wrap{
+    margin-top:-55px;
+    position:relative;
+    z-index:20;
+}
+
+.search-box{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 18px 45px rgba(20,59,94,.15);
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr 1fr auto;
+    gap:12px;
+}
+
+.field label{
+    display:block;
+    color:#8d98a6;
+    font-size:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    margin-bottom:7px;
+}
+
+.field input,
+.field select{
+    width:100%;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--text);
+    font-weight:600;
+}
+
+/* TRUST */
+
+.trust{
+    padding:75px 0 55px;
+}
+
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.trust-item{
+    text-align:center;
+    padding:28px 20px;
+    border-right:1px solid var(--border);
+}
+
+.trust-item:last-child{
+    border-right:none;
+}
+
+.trust-item div{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.trust-item h3{
+    color:var(--navy);
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.trust-item p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* COMMON */
+
+.section{
+    padding:95px 0;
+}
+
+.bg-sand{
+    background:var(--sand);
+}
+
+.section-heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 48px;
+}
+
+.small-title{
+    color:var(--primary);
+    text-transform:uppercase;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.section-heading h2{
+    font-family:"Manrope",sans-serif;
+    font-size:46px;
+    line-height:1.15;
+    color:var(--navy);
+    letter-spacing:-1.5px;
+    margin-bottom:14px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* DESTINATIONS */
+
+.destination-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.destination-card{
+    position:relative;
+    height:360px;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.destination-card img{
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.destination-card:hover img{
+    transform:scale(1.05);
+}
+
+.destination-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    padding:22px;
+    background:linear-gradient(transparent 40%,rgba(6,28,48,.83));
+    color:#fff;
+}
+
+.destination-overlay h3{
+    font-size:22px;
+    margin-bottom:4px;
+}
+
+.destination-overlay p{
+    color:#d7e3ed;
+    font-size:12px;
+}
+
+/* PACKAGES */
+
+.packages-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.package-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.package-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 18px 40px rgba(30,65,100,.09);
+}
+
+.package-image{
+    height:240px;
+    overflow:hidden;
+}
+
+.package-image img{
+    height:100%;
+    object-fit:cover;
+    transition:.35s;
+}
+
+.package-card:hover img{
+    transform:scale(1.05);
+}
+
+.package-content{
+    padding:24px;
+}
+
+.package-top{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:flex-start;
+    margin-bottom:10px;
+}
+
+.package-content h3{
+    color:var(--navy);
+    font-size:20px;
+}
+
+.rating{
+    color:#f5a623;
+    font-size:12px;
+}
+
+.package-content p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:16px;
+}
+
+.package-meta{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+}
+
+.package-meta span{
+    background:#f3f7fb;
+    color:#667487;
+    padding:6px 9px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.package-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    border-top:1px solid var(--border);
+    padding-top:18px;
+}
+
+.price span{
+    display:block;
+    color:#929cac;
+    font-size:10px;
+}
+
+.price strong{
+    font-size:25px;
+    color:var(--navy);
+}
+
+.package-link{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-image{
+    position:relative;
+    padding-right:50px;
+    padding-bottom:50px;
+}
+
+.about-image > img{
+    height:560px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.about-small{
+    position:absolute;
+    width:230px;
+    height:190px;
+    right:0;
+    bottom:0;
+    object-fit:cover;
+    border:8px solid #fff;
+    border-radius:16px;
+}
+
+.about-content h2{
+    font-family:"Manrope",sans-serif;
+    color:var(--navy);
+    font-size:45px;
+    line-height:1.17;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.about-list{
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+    margin:25px 0 30px;
+}
+
+.about-list li{
+    font-size:13px;
+    font-weight:600;
+}
+
+.about-list li:before{
+    content:"✓";
+    color:var(--green);
+    margin-right:8px;
+}
+
+/* EXPERIENCE */
+
+.experience{
+    background:var(--navy);
+    color:#fff;
+}
+
+.experience-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:570px;
+}
+
+.experience-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.experience-content{
+    padding:70px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.experience-content .small-title{
+    color:#73d7e1;
+}
+
+.experience-content h2{
+    font-family:"Manrope",sans-serif;
+    font-size:50px;
+    line-height:1.13;
+    margin-bottom:20px;
+}
+
+.experience-content p{
+    color:#becbda;
+    line-height:1.85;
+    margin-bottom:25px;
+}
+
+.experience-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.experience-item{
+    display:flex;
+    gap:12px;
+}
+
+.experience-icon{
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    display:grid;
+    place-items:center;
+}
+
+.experience-item h3{
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.experience-item p{
+    margin:0;
+    font-size:11px;
+    color:#9eb0c4;
+}
+
+/* TYPES */
+
+.type-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.type-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:28px;
+    text-align:center;
+}
+
+.type-icon{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    margin:0 auto 16px;
+    background:#eaf6ff;
+    display:grid;
+    place-items:center;
+    font-size:26px;
+}
+
+.type-card h3{
+    color:var(--navy);
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.type-card p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+}
+
+/* DEAL CTA */
+
+.deal{
+    background:
+        linear-gradient(90deg,rgba(11,40,68,.9),rgba(11,40,68,.45)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1700&q=85")
+        center/cover;
+    padding:95px 0;
+    color:#fff;
+}
+
+.deal-content{
+    max-width:680px;
+}
+
+.deal h2{
+    font-family:"Manrope",sans-serif;
+    font-size:49px;
+    line-height:1.15;
+    margin-bottom:15px;
+}
+
+.deal p{
+    color:#d8e4ee;
+    line-height:1.8;
+    margin-bottom:28px;
+}
+
+/* REVIEWS */
+
+.reviews{
+    background:#f6f8fb;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.review-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:30px;
+}
+
+.review-stars{
+    color:#f5a623;
+    margin-bottom:15px;
+}
+
+.review-card > p{
+    color:#5e6c7b;
+    line-height:1.8;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.traveler{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.traveler img{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.traveler strong{
+    display:block;
+    font-size:13px;
+    color:var(--navy);
+}
+
+.traveler span{
+    color:#98a1ae;
+    font-size:11px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    padding:70px 0;
+}
+
+.newsletter-box{
+    background:#edf7ff;
+    border-radius:20px;
+    padding:50px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:40px;
+    align-items:center;
+}
+
+.newsletter-box h2{
+    font-family:"Manrope",sans-serif;
+    font-size:37px;
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+.newsletter-box p{
+    color:var(--muted);
+}
+
+.newsletter-form{
+    width:min(440px,100%);
+    display:flex;
+    background:#fff;
+    padding:7px;
+    border-radius:11px;
+}
+
+.newsletter-form input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:12px;
+    min-width:0;
+}
+
+.newsletter-form button{
+    border:none;
+    background:var(--primary);
+    color:#fff;
+    padding:0 20px;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#081b31;
+    color:#fff;
+    padding:70px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.7fr 1fr 1fr 1.3fr;
+    gap:45px;
+}
+
+.footer-logo{
+    font-family:"Manrope",sans-serif;
+    font-size:25px;
+    font-weight:800;
+    margin-bottom:16px;
+}
+
+.footer-logo span{
+    color:#54cce0;
+}
+
+footer p,
+footer a{
+    color:#98a9bc;
+    font-size:13px;
+    line-height:1.9;
+}
+
+footer h4{
+    margin-bottom:17px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin-bottom:8px;
+}
+
+footer a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    border-top:1px solid #20364f;
+    margin-top:45px;
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#6d8094;
+    font-size:11px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .menu{
+        display:none;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .experience-grid{
+        grid-template-columns:1fr;
+    }
+
+    .search-box{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .search-box button{
+        grid-column:span 2;
+    }
+
+    .trust-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .destination-grid,
+    .type-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .packages-grid,
+    .review-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .newsletter-box{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .container{
+        width:min(100% - 24px,1200px);
+    }
+
+    .topbar-inner{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .topbar-inner span:last-child{
+        display:none;
+    }
+
+    .nav-actions .btn-light{
+        display:none;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .hero{
+        padding-top:20px;
+    }
+
+    .hero-content{
+        padding-top:55px;
+    }
+
+    .hero h1{
+        font-size:45px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero-image img{
+        height:430px;
+    }
+
+    .hero-card{
+        left:10px;
+        bottom:25px;
+    }
+
+    .search-box{
+        grid-template-columns:1fr;
+    }
+
+    .search-box button{
+        grid-column:auto;
+    }
+
+    .trust-grid,
+    .destination-grid,
+    .packages-grid,
+    .type-grid,
+    .review-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .trust-item{
+        border-right:none;
+        border-bottom:1px solid var(--border);
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
+    .section-heading h2{
+        font-size:37px;
+    }
+
+    .about-image{
+        padding-right:25px;
+    }
+
+    .about-image > img{
+        height:440px;
+    }
+
+    .about-small{
+        width:180px;
+        height:150px;
+    }
+
+    .about-content h2{
+        font-size:38px;
+    }
+
+    .about-list,
+    .experience-list{
+        grid-template-columns:1fr;
+    }
+
+    .experience-content{
+        padding:45px 25px;
+    }
+
+    .experience-content h2{
+        font-size:39px;
+    }
+
+    .deal h2{
+        font-size:39px;
+    }
+
+    .newsletter-box{
+        padding:35px 22px;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+        background:transparent;
+        padding:0;
+        gap:8px;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button{
+        width:100%;
+        min-height:48px;
+        border-radius:8px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+    <div class="container topbar-inner">
+        <span>Flights · Hotels · Holiday Packages · Visa Assistance</span>
+        <span>Travel experts: <strong>+1 (555) 830-4470</strong></span>
+    </div>
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="#" class="logo">
+            Wander<span>ly</span>
+        </a>
+
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#experience">Experiences</a></li>
+            <li><a href="#">Hotels</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="#" class="btn btn-light">Sign In</a>
+            <a href="#packages" class="btn btn-primary">Plan a Trip</a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <span></span>
+                Tailor-made holidays around the world
+            </div>
+
+            <h1>
+                Go somewhere <span>you'll never forget.</span>
+            </h1>
+
+            <p>
+                Discover unforgettable holidays, romantic escapes,
+                family adventures, luxury tours, beach vacations,
+                city breaks, and customized travel experiences.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#packages" class="btn btn-primary">Explore Packages</a>
+                <a href="#destinations" class="btn btn-outline">Browse Destinations</a>
+            </div>
+
+            <div class="hero-points">
+                <div><span>✓</span> Handpicked hotels</div>
+                <div><span>✓</span> Flexible itineraries</div>
+                <div><span>✓</span> 24/7 trip support</div>
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1100&q=90"
+                alt="Travel destination">
+
+            <div class="hero-card">
+                <strong>Explore Bali</strong>
+                <span>7 nights from $1,299 per person</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-wrap">
+
+    <div class="container">
+
+        <form class="search-box">
+
+            <div class="field">
+                <label>Destination</label>
+                <input type="text" placeholder="Where do you want to go?">
+            </div>
+
+            <div class="field">
+                <label>Departure</label>
+                <input type="date">
+            </div>
+
+            <div class="field">
+                <label>Return</label>
+                <input type="date">
+            </div>
+
+            <div class="field">
+                <label>Travelers</label>
+                <select>
+                    <option>2 Travelers</option>
+                    <option>1 Traveler</option>
+                    <option>3 Travelers</option>
+                    <option>4 Travelers</option>
+                    <option>5+ Travelers</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Find Trips
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- TRUST -->
+
+<section class="trust">
+
+    <div class="container trust-grid">
+
+        <div class="trust-item">
+            <div>✈️</div>
+            <h3>Flight Support</h3>
+            <p>Convenient travel planning</p>
+        </div>
+
+        <div class="trust-item">
+            <div>🏨</div>
+            <h3>Handpicked Hotels</h3>
+            <p>Trusted accommodation options</p>
+        </div>
+
+        <div class="trust-item">
+            <div>🗺️</div>
+            <h3>Custom Itineraries</h3>
+            <p>Trips designed around you</p>
+        </div>
+
+        <div class="trust-item">
+            <div>🎧</div>
+            <h3>24/7 Assistance</h3>
+            <p>Support throughout your journey</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+
+<section class="section bg-sand" id="destinations">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Trending Destinations
+            </div>
+
+            <h2>
+                Where will your next story begin?
+            </h2>
+
+            <p>
+                Explore some of our most loved destinations for beaches,
+                romance, adventure, culture, and unforgettable experiences.
+            </p>
+
+        </div>
+
+
+        <div class="destination-grid">
+
+            <div class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=700&q=85"
+                    alt="Bali">
+
+                <div class="destination-overlay">
+                    <div>
+                        <h3>Bali</h3>
+                        <p>Beaches · Villas · Culture</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=700&q=85"
+                    alt="Paris">
+
+                <div class="destination-overlay">
+                    <div>
+                        <h3>Paris</h3>
+                        <p>Romance · Food · Culture</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=700&q=85"
+                    alt="Tokyo">
+
+                <div class="destination-overlay">
+                    <div>
+                        <h3>Tokyo</h3>
+                        <p>City · Cuisine · Technology</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=85"
+                    alt="Dubai">
+
+                <div class="destination-overlay">
+                    <div>
+                        <h3>Dubai</h3>
+                        <p>Luxury · Desert · Shopping</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PACKAGES -->
+
+<section class="section" id="packages">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Popular Holiday Packages
+            </div>
+
+            <h2>
+                Ready-made trips. Easy to personalize.
+            </h2>
+
+            <p>
+                Start with one of our popular holiday packages
+                and customize hotels, activities, dates, and travel style.
+            </p>
+
+        </div>
+
+
+        <div class="packages-grid">
+
+            <article class="package-card">
+
+                <div class="package-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=900&q=85"
+                        alt="Bali package">
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-top">
+                        <h3>Bali Island Escape</h3>
+                        <div class="rating">★★★★★</div>
+                    </div>
+
+                    <p>
+                        Relax in beautiful resorts, explore temples,
+                        waterfalls, beaches, and vibrant local culture.
+                    </p>
+
+                    <div class="package-meta">
+                        <span>7 Nights</span>
+                        <span>4★ Hotels</span>
+                        <span>Breakfast</span>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="price">
+                            <span>From</span>
+                            <strong>$1,299</strong>
+                        </div>
+
+                        <a href="#" class="package-link">
+                            View Trip →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="package-card">
+
+                <div class="package-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=85"
+                        alt="Paris package">
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-top">
+                        <h3>Paris Romantic Escape</h3>
+                        <div class="rating">★★★★★</div>
+                    </div>
+
+                    <p>
+                        Charming streets, iconic landmarks, cafés,
+                        fine dining, river cruises, and romantic evenings.
+                    </p>
+
+                    <div class="package-meta">
+                        <span>5 Nights</span>
+                        <span>4★ Hotel</span>
+                        <span>City Tour</span>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="price">
+                            <span>From</span>
+                            <strong>$1,699</strong>
+                        </div>
+
+                        <a href="#" class="package-link">
+                            View Trip →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="package-card">
+
+                <div class="package-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=85"
+                        alt="Tokyo trip">
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-top">
+                        <h3>Tokyo Discovery Tour</h3>
+                        <div class="rating">★★★★★</div>
+                    </div>
+
+                    <p>
+                        Discover neon streets, traditional temples,
+                        Japanese food, shopping districts, and day trips.
+                    </p>
+
+                    <div class="package-meta">
+                        <span>6 Nights</span>
+                        <span>4★ Hotels</span>
+                        <span>Guided Tour</span>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="price">
+                            <span>From</span>
+                            <strong>$1,899</strong>
+                        </div>
+
+                        <a href="#" class="package-link">
+                            View Trip →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="package-card">
+
+                <div class="package-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85"
+                        alt="Dubai package">
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-top">
+                        <h3>Dubai Luxury Break</h3>
+                        <div class="rating">★★★★★</div>
+                    </div>
+
+                    <p>
+                        Luxury hotels, desert safari, skyline views,
+                        shopping, fine dining, and iconic attractions.
+                    </p>
+
+                    <div class="package-meta">
+                        <span>5 Nights</span>
+                        <span>5★ Resort</span>
+                        <span>Desert Safari</span>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="price">
+                            <span>From</span>
+                            <strong>$1,499</strong>
+                        </div>
+
+                        <a href="#" class="package-link">
+                            View Trip →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="package-card">
+
+                <div class="package-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=85"
+                        alt="Thailand package">
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-top">
+                        <h3>Thailand Beach Adventure</h3>
+                        <div class="rating">★★★★★</div>
+                    </div>
+
+                    <p>
+                        Bangkok city life, tropical beaches,
+                        island adventures, temples, and unforgettable food.
+                    </p>
+
+                    <div class="package-meta">
+                        <span>8 Nights</span>
+                        <span>Hotels</span>
+                        <span>Island Tour</span>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="price">
+                            <span>From</span>
+                            <strong>$1,249</strong>
+                        </div>
+
+                        <a href="#" class="package-link">
+                            View Trip →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="package-card">
+
+                <div class="package-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85"
+                        alt="Maldives package">
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-top">
+                        <h3>Maldives Luxury Retreat</h3>
+                        <div class="rating">★★★★★</div>
+                    </div>
+
+                    <p>
+                        Overwater villas, turquoise lagoons,
+                        beach dining, snorkeling, and pure relaxation.
+                    </p>
+
+                    <div class="package-meta">
+                        <span>5 Nights</span>
+                        <span>5★ Resort</span>
+                        <span>Breakfast</span>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="price">
+                            <span>From</span>
+                            <strong>$2,199</strong>
+                        </div>
+
+                        <a href="#" class="package-link">
+                            View Trip →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section bg-sand">
+
+    <div class="container about-grid">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=85"
+                alt="Travel planning">
+
+            <img
+                class="about-small"
+                src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=600&q=85"
+                alt="Travel adventure">
+
+        </div>
+
+
+        <div class="about-content">
+
+            <div class="small-title">
+                Why Travel With Wanderly
+            </div>
+
+            <h2>
+                Your trip should feel like yours, not everyone else's.
+            </h2>
+
+            <p>
+                We help travelers create trips around their interests,
+                pace, budget, and style rather than forcing everyone
+                into the same itinerary.
+            </p>
+
+            <p>
+                Our travel specialists can help with destination planning,
+                accommodation, transportation, sightseeing, activities,
+                and on-trip support.
+            </p>
+
+            <ul class="about-list">
+                <li>Personal travel advisor</li>
+                <li>Flexible trip planning</li>
+                <li>Handpicked accommodation</li>
+                <li>Local experiences</li>
+                <li>Visa guidance</li>
+                <li>24/7 trip support</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary">
+                Plan a Custom Trip
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="experience" id="experience">
+
+    <div class="experience-grid">
+
+        <div class="experience-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1100&q=90"
+                alt="Travel experience">
+
+        </div>
+
+
+        <div class="experience-content">
+
+            <div class="small-title">
+                More Than A Holiday
+            </div>
+
+            <h2>
+                Travel for the experiences you'll talk about for years.
+            </h2>
+
+            <p>
+                Build your trip around adventure, relaxation,
+                food, culture, wildlife, romance, wellness,
+                or the perfect mix of everything.
+            </p>
+
+
+            <div class="experience-list">
+
+                <div class="experience-item">
+                    <div class="experience-icon">🏝️</div>
+                    <div>
+                        <h3>Island Escapes</h3>
+                        <p>Beaches, resorts, snorkeling, and relaxation.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">🏔️</div>
+                    <div>
+                        <h3>Adventure Tours</h3>
+                        <p>Hiking, mountains, outdoor experiences, and nature.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">🍽️</div>
+                    <div>
+                        <h3>Food & Culture</h3>
+                        <p>Local cuisine, markets, history, and traditions.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-icon">💍</div>
+                    <div>
+                        <h3>Honeymoons</h3>
+                        <p>Romantic stays and personalized couple experiences.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRAVEL TYPE -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Travel Your Way
+            </div>
+
+            <h2>
+                Trips for every kind of traveler.
+            </h2>
+
+        </div>
+
+
+        <div class="type-grid">
+
+            <div class="type-card">
+                <div class="type-icon">💑</div>
+                <h3>Honeymoons</h3>
+                <p>Romantic trips built around privacy, luxury, and unforgettable moments.</p>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">👨‍👩‍👧‍👦</div>
+                <h3>Family Holidays</h3>
+                <p>Comfortable itineraries and experiences everyone can enjoy.</p>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">🎒</div>
+                <h3>Adventure Trips</h3>
+                <p>Outdoor activities, road trips, hiking, wildlife, and exploration.</p>
+            </div>
+
+            <div class="type-card">
+                <div class="type-icon">✨</div>
+                <h3>Luxury Travel</h3>
+                <p>Premium hotels, private transfers, exclusive tours, and elevated experiences.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DEAL -->
+
+<section class="deal">
+
+    <div class="container">
+
+        <div class="deal-content">
+
+            <div class="small-title" style="color:#7ce4ee;">
+                Limited Holiday Offer
+            </div>
+
+            <h2>
+                Escape to the Maldives and save up to 20%.
+            </h2>
+
+            <p>
+                Book selected Maldives resort packages and enjoy special
+                seasonal pricing on luxury stays, breakfast, transfers,
+                and beach experiences.
+            </p>
+
+            <a href="#" class="btn btn-primary">
+                Explore Maldives Deals
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section class="section reviews">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Traveler Stories
+            </div>
+
+            <h2>
+                Trips worth remembering.
+            </h2>
+
+        </div>
+
+
+        <div class="review-grid">
+
+            <article class="review-card">
+
+                <div class="review-stars">★★★★★</div>
+
+                <p>
+                    “Wanderly planned our honeymoon in Bali and everything
+                    was smooth from airport pickup to hotel transfers and activities.
+                    We barely had to think about logistics.”
+                </p>
+
+                <div class="traveler">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                        alt="Traveler">
+
+                    <div>
+                        <strong>Emma Parker</strong>
+                        <span>Bali Honeymoon</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="review-card">
+
+                <div class="review-stars">★★★★★</div>
+
+                <p>
+                    “We traveled to Japan as a family and the itinerary
+                    was exactly the right pace. Great hotels, thoughtful planning,
+                    and excellent support.”
+                </p>
+
+                <div class="traveler">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+                        alt="Traveler">
+
+                    <div>
+                        <strong>David Miller</strong>
+                        <span>Japan Family Tour</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="review-card">
+
+                <div class="review-stars">★★★★★</div>
+
+                <p>
+                    “I wanted a mix of beaches, adventure, and local food in Thailand.
+                    They created a trip that felt completely personalized.”
+                </p>
+
+                <div class="traveler">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                        alt="Traveler">
+
+                    <div>
+                        <strong>Sophia Grant</strong>
+                        <span>Thailand Explorer</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <div class="container">
+
+        <div class="newsletter-box">
+
+            <div>
+
+                <h2>
+                    Let your next trip find you.
+                </h2>
+
+                <p>
+                    Get travel inspiration, new packages,
+                    destination guides, and holiday deals in your inbox.
+                </p>
+
+            </div>
+
+
+            <form class="newsletter-form">
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    required>
+
+                <button type="submit">
+                    Subscribe
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-logo">
+                    Wander<span>ly</span>
+                </div>
+
+                <p>
+                    Custom holidays, international tours,
+                    honeymoon packages, family vacations,
+                    luxury travel, hotels, flights, and unforgettable experiences.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <ul>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Holiday Packages</a></li>
+                    <li><a href="#">Honeymoons</a></li>
+                    <li><a href="#">Luxury Travel</a></li>
+                    <li><a href="#">Adventure Tours</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Travel Services</h4>
+
+                <ul>
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Visa Assistance</a></li>
+                    <li><a href="#">Airport Transfers</a></li>
+                    <li><a href="#">Travel Insurance</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <p>
+                    +1 (555) 830-4470<br>
+                    hello@wanderly.com
+                </p>
+
+                <p>
+                    240 Journey Avenue<br>
+                    Miami, FL 33101
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Wanderly Travel Agency. All Rights Reserved.
+            </span>
+
+            <span>
+                Privacy · Terms · Booking Policy · Cancellation Policy
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
